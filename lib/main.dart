@@ -108,14 +108,25 @@ class _MainPageState extends State<MainPage> {
         type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.abc_outlined),
-            label: 'label1',
+            icon: Icon(
+              Defaults.drawerItemIcon[0],
+            ),
+            label: Defaults.drawerItemText[0],
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.abc_outlined),
-            label: 'label2',
+            icon: Icon(
+              Defaults.drawerItemIcon[1],
+            ),
+            label: Defaults.drawerItemText[1],
           ),
         ],
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          setState(() {});
+        },
+        label: Text('Save'),
       ),
     );
   }
