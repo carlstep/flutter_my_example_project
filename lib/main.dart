@@ -3,10 +3,12 @@ import 'package:flutter_my_example_project/defaults/defaults.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
@@ -26,16 +28,17 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   final contentPage = [
-    Center(
+    //TODO - create content for each of the pages
+    const Center(
       child: Text('Personal Data'),
     ),
-    Center(
+    const Center(
       child: Text('Contact Info'),
     ),
-    Center(
+    const Center(
       child: Text('Skill Set'),
     ),
-    Center(
+    const Center(
       child: Text('Interests'),
     ),
   ];
@@ -58,25 +61,34 @@ class _MainPageState extends State<MainPage> {
         backgroundColor: Colors.grey[600],
         appBar: AppBar(
           bottom: TabBar(
+            indicator: BoxDecoration(
+              borderRadius: BorderRadius.circular(50),
+              color: Colors.amber[300],
+            ),
             tabs: [
+              //TODO - create functionality for each of the tabs
               Tab(
                 icon: Icon(
                   Defaults.drawerItemIcon[0],
+                  color: Colors.grey[700],
                 ),
               ),
               Tab(
                 icon: Icon(
                   Defaults.drawerItemIcon[1],
+                  color: Colors.grey[700],
                 ),
               ),
               Tab(
                 icon: Icon(
                   Defaults.drawerItemIcon[2],
+                  color: Colors.grey[700],
                 ),
               ),
               Tab(
                 icon: Icon(
                   Defaults.drawerItemIcon[3],
+                  color: Colors.grey[700],
                 ),
               ),
             ],
@@ -92,7 +104,7 @@ class _MainPageState extends State<MainPage> {
                 child: DrawerHeader(
                   child: Column(
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
                         radius: 50,
                       ),
                       Text(
@@ -135,6 +147,8 @@ class _MainPageState extends State<MainPage> {
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
+          currentIndex: contentPageIndex,
+          onTap: updateState,
           type: BottomNavigationBarType.fixed,
           items: [
             BottomNavigationBarItem(
@@ -151,12 +165,14 @@ class _MainPageState extends State<MainPage> {
             ),
           ],
         ),
+        //TODO - update FAB to do something - change TabBarView or change Page color
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton.extended(
           onPressed: () {
-            setState(() {});
+            setState() {}
+            ;
           },
-          label: Text('Save'),
+          label: const Text('Save'),
         ),
       ),
     );
